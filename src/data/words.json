@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "word": "resilient",
+    "ipa": "/rɪˈzɪliənt/",
+    "meaningVi": "kiên cường, có khả năng phục hồi",
+    "example": "She remained resilient despite many setbacks.",
+    "topic": "character"
+  },
+  {
+    "id": "2",
+    "word": "meticulous",
+    "ipa": "/məˈtɪkjələs/",
+    "meaningVi": "tỉ mỉ, cẩn thận từng chi tiết",
+    "example": "He keeps meticulous notes for every meeting.",
+    "topic": "character"
+  },
+  {
+    "id": "3",
+    "word": "ambiguous",
+    "ipa": "/æmˈbɪɡjuəs/",
+    "meaningVi": "mơ hồ, không rõ ràng",
+    "example": "The contract language was deliberately ambiguous.",
+    "topic": "language"
+  },
+  {
+    "id": "4",
+    "word": "pragmatic",
+    "ipa": "/præɡˈmætɪk/",
+    "meaningVi": "thực dụng, thiên về thực tế",
+    "example": "We need a pragmatic solution, not a perfect one.",
+    "topic": "ideas"
+  },
+  {
+    "id": "5",
+    "word": "coherent",
+    "ipa": "/koʊˈhɪrənt/",
+    "meaningVi": "mạch lạc, thống nhất",
+    "example": "Please write a coherent summary of the chapter.",
+    "topic": "language"
+  },
+  {
+    "id": "6",
+    "word": "substantial",
+    "ipa": "/səbˈstænʃəl/",
+    "meaningVi": "đáng kể, quan trọng",
+    "example": "They made substantial progress this quarter.",
+    "topic": "general"
+  },
+  {
+    "id": "7",
+    "word": "inevitable",
+    "ipa": "/ɪˈnevɪtəbəl/",
+    "meaningVi": "không thể tránh khỏi",
+    "example": "Change is inevitable in a growing company.",
+    "topic": "general"
+  },
+  {
+    "id": "8",
+    "word": "scrutinize",
+    "ipa": "/ˈskruːtənaɪz/",
+    "meaningVi": "xem xét kỹ lưỡng",
+    "example": "Auditors will scrutinize every expense report.",
+    "topic": "work"
+  }
+]

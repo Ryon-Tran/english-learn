@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <defs>
+    <linearGradient id="cambg" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffbeb"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="camg" x1="140" y1="56" x2="260" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#cambg)"/>
+  <path d="M200 56l-72 32v88l72 36 72-36V88l-72-32z" fill="white" fill-opacity="0.95"/>
+  <path d="M200 72l52 24v64l-52 26-52-26V96l52-24z" fill="url(#camg)" opacity="0.88"/>
+  <path d="M176 112h48M176 132h40M176 152h48" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="200" cy="188" r="28" fill="#f59e0b" fill-opacity="0.2"/>
+</svg>

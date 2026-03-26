@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <defs>
+    <linearGradient id="ieltsbg" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f5f3ff"/>
+      <stop offset="1" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <linearGradient id="ieltsg" x1="96" y1="64" x2="304" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#5b21b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#ieltsbg)"/>
+  <ellipse cx="200" cy="118" rx="100" ry="56" fill="white" fill-opacity="0.92"/>
+  <path d="M140 118c0-28 27-50 60-50s60 22 60 50-27 44-60 44-60-16-60-44z" fill="url(#ieltsg)" opacity="0.25"/>
+  <path d="M156 118h88M200 84v68" stroke="url(#ieltsg)" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <rect x="168" y="96" width="64" height="44" rx="6" fill="url(#ieltsg)" opacity="0.85"/>
+  <path d="M180 108h40M180 120h28" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.95"/>
+  <path d="M120 176l16-8 16 8 16-8 16 8 16-8 16 8 16-8 16 8 16-8 16 8" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+  <circle cx="200" cy="188" r="32" fill="#8b5cf6" fill-opacity="0.12"/>
+</svg>
