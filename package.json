@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "node scripts/build-static.mjs",
+    "preview:static": "npx --yes serve@14 out -p 3000",
     "start": "next start",
     "lint": "eslint src --max-warnings 0"
   },

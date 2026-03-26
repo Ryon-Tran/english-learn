@@ -1,4 +1,7 @@
-/** Dùng cho SEO: đặt NEXT_PUBLIC_SITE_URL=https://ten-mien-cua-ban.com khi deploy */
+/**
+ * Dùng cho SEO / metadataBase.
+ * GitHub Pages (workflow): NEXT_PUBLIC_SITE_URL = https://<user>.github.io hoặc …/io/<repo>
+ */
 export const siteName = "English Learn";
 
 export function getSiteUrl(): string {

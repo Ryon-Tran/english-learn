@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
-import { getPapersBySkill, isSkill } from "@/lib/papers";
+import { getPapersBySkill, isSkill, SKILLS } from "@/lib/papers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteName } from "@/lib/site";
 
 type PageProps = { params: Promise<{ skill: string }> };
+
+export function generateStaticParams() {
+  return SKILLS.map((skill) => ({ skill }));
+}
 
 const skillLabels: Record<string, string> = {
   reading: "Reading",

@@ -1,0 +1,72 @@
+# Triển khai Next.js (static export) lên GitHub Pages.
+# Cấu hình repo: Settings → Pages → Source: GitHub Actions.
+# Project site: https://<user>.github.io/<repo>/
+# User site (repo tên <user>.github.io): workflow tự đặt base path rỗng.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Set base path and site URL for GitHub Pages
+        run: |
+          REPO="${{ github.event.repository.name }}"
+          OWNER="${{ github.repository_owner }}"
+          if [ "$REPO" = "$OWNER.github.io" ]; then
+            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
+          else
+            echo "NEXT_PUBLIC_BASE_PATH=/${REPO}" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://${OWNER}.github.io/${REPO}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build static export
+        run: pnpm run build:static
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { getPaper, isSkill } from "@/lib/papers";
+import { getAllPapers, getPaper, isSkill } from "@/lib/papers";
 import { Button } from "@/components/ui/button";
 import { ListeningTest } from "@/components/skills/listening-test";
 import { ReadingTest } from "@/components/skills/reading-test";
@@ -11,6 +11,13 @@ import { WritingForm } from "@/components/skills/writing-form";
 import { siteName } from "@/lib/site";
 
 type PageProps = { params: Promise<{ skill: string; paperId: string }> };
+
+export function generateStaticParams() {
+  return getAllPapers().map((p) => ({
+    skill: p.skill,
+    paperId: p.id,
+  }));
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { skill, paperId } = await params;

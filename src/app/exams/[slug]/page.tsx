@@ -4,11 +4,15 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { ExamCatalog } from "@/app/exams/[slug]/exam-catalog";
 import { Button } from "@/components/ui/button";
-import { getExamTrack, isExamSlug } from "@/lib/exams";
+import { EXAM_TRACKS, getExamTrack, isExamSlug } from "@/lib/exams";
 import { getAllPapers } from "@/lib/papers";
 import { siteName } from "@/lib/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
+
+export function generateStaticParams() {
+  return EXAM_TRACKS.map((t) => ({ slug: t.slug }));
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
