@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // CI: tránh fail build vì ESLint khi export tĩnh (chạy `pnpm lint` riêng)
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

@@ -1,7 +1,5 @@
 # Triển khai Next.js (static export) lên GitHub Pages.
 # Cấu hình repo: Settings → Pages → Source: GitHub Actions.
-# Project site: https://<user>.github.io/<repo>/
-# User site (repo tên <user>.github.io): workflow tự đặt base path rỗng.
 
 name: Deploy to GitHub Pages
 
@@ -19,26 +17,22 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-# Tránh cảnh báo Node 20 cho các action JS; xem changelog GitHub Actions.
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      # Chỉ dùng pnpm@… trong package.json (packageManager), không khai báo version ở đây
+      # Phiên bản pnpm lấy từ package.json (packageManager)
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
-          cache: "pnpm"
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -58,6 +52,7 @@ jobs:
       - name: Build static export
         run: pnpm run build:static
 
+      # v4 bỏ qua dotfile trong artifact — out/.nojekyll (từ public) cần cho Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -72,4 +67,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
